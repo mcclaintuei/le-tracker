@@ -1,0 +1,173 @@
+body {
+    overflow: hidden;
+    background-color: rgb(10, 26, 41);
+    font-size: 1rem;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+body p {
+    color: #170027;
+}
+
+.header {
+    padding: 0 20px 0 20px;
+    display: flex;
+    background-color: #78184A;
+    color: white;
+}
+
+#body-section {
+    display: flex;
+}
+
+.container {
+    margin: 20px;
+    width: 250px;
+    height: 170px;
+    background-color: #80a5c5;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px 2px #80a5c588;
+    transition: .3s ease;
+}
+
+.container-btns {
+    margin-bottom: 10px;
+}
+
+.button {
+    width: 100px;
+    padding: 10px 15px;
+    background-color: #78184A;
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-right: 10px;
+    transition: .3s ease;
+
+}
+
+.button:hover {
+    background-color: #4B0082;
+    transform: scale(1.05);
+
+}
+
+.records-container {
+    margin: 20px;
+    width: 350px;
+    background-color: #80a5c5;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px 2px #80a5c588;
+    transition: .3s ease;
+}
+
+.records-container .button {
+    font-size: 15px;
+}
+
+.js-input-grid,
+.js-records-grid {
+    width: 300px;
+    display: grid;
+    grid-template-columns: 100px 100px 20px;
+    column-gap: 20px;
+    row-gap: 10px;
+    align-items: start;
+
+}
+
+.js-records-grid p {
+    padding: 10px 15px;
+    margin: 0;
+    color: #12304b;
+    border: 1px solid #b1dbe7;
+    border-radius: 5px;
+}
+
+.js-input-grid {
+    margin-bottom: 10px;
+}
+
+.js-day-input,
+.js-count-input {
+    padding: 10px 10px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #80a5c588;
+}
+
+.weekly-avg {
+    margin-top: 10px;
+}
+
+
+@media (max-width: 477px) {
+    body {
+        font-size: 20px;
+        overflow-y: auto;
+    }
+
+    .header {
+        width: 100%;
+        align-items: center;
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .button {
+        width: 94%;
+        margin: 0 10px 0 10px;
+
+    }
+
+    #body-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        width: 300px;
+        height: 350px;
+    }
+
+    .container-btns {
+        display: flex;
+        align-items: start;
+
+    }
+
+    .js-input-grid,
+    .js-records-grid {
+
+        grid-template-columns: 100px 100px 100px;
+        column-gap: 10px;
+        row-gap: 10px;
+        align-items: start;
+
+
+    }
+
+    .container-btns .button {
+        width: 100%;
+        height: 200px;
+        margin: 0 10px 0 10px;
+    }
+
+    .records-container {
+        font-size: 12px;
+        width: 330px;
+        padding: 5px;
+    }
+
+    .records-container .button {
+        margin: 0;
+        max-width: none;
+    }
+
+
+}

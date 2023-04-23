@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <title>Incrementor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+        <div class="header">
+            <h2>Incident Count Tracker</h2>
+        </div>
+    </section>
+    <section id="body-section">
+        <div class="container">
+            <p class="incident-Element"></p>
+            <div class="container-btns">
+                <button class="button js-increment">+1</button>
+                <button class="button js-decrement">-1</button>
+            </div>
+            <button class="button js-reset">Reset</button>
+            <div class="weekly-avg">Weekly Average:</div>
+        </div>
+        <div class="records-container">
+            <div class="js-input-grid">
+               <!--<input type="text" class="js-day-input" placeholder="Day">--> 
+                <select class="js-day-input">
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                  </select>
+                  
+                <input type="number" class="js-count-input" placeholder="Incidents">
+                <button class="button js-add-record-btn">Add</button>
+            </div>
+            <div class="js-records-grid">
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
