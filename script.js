@@ -62,6 +62,11 @@ addRecordButton.addEventListener('click', () => {
 })
 
 const records = []
+const weeklyrecords = {
+        saturday: 0,
+        sunday: 0,
+        monday: 0
+    }
 
 function addRecord() {
     const record = {
@@ -85,11 +90,6 @@ function addRecord() {
     console.log(records)
 
     //Weekly Records Storage
-    const weeklyrecords = {
-        saturday: 0,
-        sunday: 0,
-        monday: 0
-    }
  
         if (record.day === 'Saturday') {
             weeklyrecords.saturday = record.incidentCount;
