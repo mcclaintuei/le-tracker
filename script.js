@@ -57,17 +57,26 @@ const addRecordButton = document.querySelector('.js-add-record-btn')
 const recordsElement = document.querySelector('.js-records-grid')
 const deleteRecordButton = document.querySelector('.js-add-record-btn')
 const weeklyAvergeElement = document.querySelector('.weekly-avg')
+
 addRecordButton.addEventListener('click', () => {
     addRecord();
 })
 
-const records = []
-const weeklyrecords = {
-        saturday: 0,
-        sunday: 0,
-        monday: 0
-    }
+countInputElement.addEventListener('keydown', (event) => {
+   keypressed = event.key
+   if (keypressed === 'Enter') {
+    addRecord();
+   }
+})
 
+const records = JSON.parse(localStorage.getItem('records')) || []
+console.log(records)
+const weeklyrecords = JSON.parse(localStorage.getItem('weeklyrecords')) || {
+    saturday: 0,
+    sunday: 0,
+    monday: 0
+}
+renderRecords()
 function addRecord() {
     const record = {
         day: '',
@@ -90,19 +99,22 @@ function addRecord() {
     console.log(records)
 
     //Weekly Records Storage
- 
-        if (record.day === 'Saturday') {
-            weeklyrecords.saturday = record.incidentCount;
-        } else if (record.day === 'Sunday') {
-            weeklyrecords.sunday = record.incidentCount;
-        } else if (record.day === 'Monday') {
-            weeklyrecords.monday = record.incidentCount;
-        }
-        console.log(weeklyrecords)
-        let weeklyAverge = (parseInt(weeklyrecords.saturday) + parseInt(weeklyrecords.sunday) + parseInt(weeklyrecords.monday))/ 3
-        console.log(weeklyAverge.toFixed(1))
-        weeklyAvergeElement.innerHTML = `Weekly Avergae: ${weeklyAverge.toFixed(1)}`
+    if (record.day === 'Saturday') {
+        weeklyrecords.saturday = record.incidentCount;
+    } else if (record.day === 'Sunday') {
+        weeklyrecords.sunday = record.incidentCount;
+    } else if (record.day === 'Monday') {
+        weeklyrecords.monday = record.incidentCount;
+    }
+    console.log(weeklyrecords)
+    let weeklyAverge = (parseInt(weeklyrecords.saturday) + parseInt(weeklyrecords.sunday) + parseInt(weeklyrecords.monday)) / 3
+    console.log(weeklyAverge.toFixed(1))
+    weeklyAvergeElement.innerHTML = `Weekly Average: ${weeklyAverge.toFixed(1)}`
+
+    localStorage.setItem('weeklyrecords', JSON.stringify(weeklyrecords))
+    localStorage.setItem('records', JSON.stringify(records))
 }
+
 
 
 
