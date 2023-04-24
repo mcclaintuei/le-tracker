@@ -90,7 +90,9 @@ function addRecord() {
         alert('Day is required')
     } else if (!record.incidentCount) {
         alert('incident count is required')
-    } else {
+    } else if (record.incidentCount < 0) {
+        alert('incident count must be >= 0')
+    }else {
         records.push(record)
     }
     dayInputElement.value = ''
