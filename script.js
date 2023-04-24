@@ -127,7 +127,7 @@ function renderRecords() {
         const html = `
             <p>${record.day}</p>
             <p>${record.incidentCount}</p>
-            <button class="button js-deleteRecord">delete</button>
+            <button class="button js-deleteRecord">Delete</button>
         `
         recordsGridHTML += html
     }
