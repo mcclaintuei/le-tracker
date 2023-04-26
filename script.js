@@ -63,10 +63,10 @@ addRecordButton.addEventListener('click', () => {
 })
 
 countInputElement.addEventListener('keydown', (event) => {
-   keypressed = event.key
-   if (keypressed === 'Enter') {
-    addRecord();
-   }
+    keypressed = event.key
+    if (keypressed === 'Enter') {
+        addRecord();
+    }
 })
 
 const records = JSON.parse(localStorage.getItem('records')) || []
@@ -92,7 +92,7 @@ function addRecord() {
         alert('incident count is required')
     } else if (record.incidentCount < 0) {
         alert('incident count must be >= 0')
-    }else {
+    } else {
         records.push(record)
     }
     dayInputElement.value = ''
@@ -117,10 +117,6 @@ function addRecord() {
     localStorage.setItem('records', JSON.stringify(records))
 }
 
-
-
-
-
 function renderRecords() {
     let recordsGridHTML = []
     for (let index = 0; index < records.length; index++) {
@@ -129,6 +125,7 @@ function renderRecords() {
         const html = `
             <p>${record.day}</p>
             <p>${record.incidentCount}</p>
+            <button class="button js-editRecord" data-index="${index}">Edit</button>
             <button class="button js-deleteRecord">Delete</button>
         `
         recordsGridHTML += html
@@ -140,8 +137,73 @@ function renderRecords() {
             deleteButton.addEventListener('click', () => {
                 records.splice(index, 1);
                 renderRecords()
+                localStorage.setItem('records', JSON.stringify(records))
+
             })
         });
+
+    document.querySelectorAll('.js-editRecord')
+        .forEach((editButton) => {
+            editButton.addEventListener('click', () => {
+                const index = editButton.dataset.index;
+                // open a dialog box or a form to edit the record
+                editRecord(index)
+            })
+        });
+
+    // update local storage after records are rendered
+    localStorage.setItem('records', JSON.stringify(records))
 }
 
 
+function editRecord(index) {
+    // create a dialog box or form
+    const dialogBox = document.createElement('div')
+    dialogBox.classList.add('dialog-box')
+
+    const record = records[index]
+
+    // create input fields for day and incident count
+    const dayInput = document.createElement('input')
+    dayInput.type = 'text'
+    dayInput.value = record.day
+
+    const countInput = document.createElement('input')
+    countInput.type = 'number'
+    countInput.value = record.incidentCount
+
+    // create a submit button
+    const submitButton = document.createElement('button')
+    submitButton.textContent = 'Save'
+    submitButton.addEventListener('click', () => {
+        // update the record with the new values
+        record.day = dayInput.value
+        record.incidentCount = countInput.value
+
+        // save the updated records to localStorage
+        localStorage.setItem('records', JSON.stringify(records))
+
+        // re-render the records
+        renderRecords()
+
+        // close the dialog box or form
+        dialogBox.remove()
+    })
+
+    // create a cancel button
+    const cancelButton = document.createElement('button')
+    cancelButton.textContent = 'Cancel'
+    cancelButton.addEventListener('click', () => {
+        // close the dialog box or form
+        dialogBox.remove()
+    })
+
+    // add the input fields and buttons to the dialog box or form
+    dialogBox.appendChild(dayInput)
+    dialogBox.appendChild(countInput)
+    dialogBox.appendChild(submitButton)
+    dialogBox.appendChild(cancelButton)
+
+    // add the dialog box or form to the page
+    document.querySelector('.records-container').appendChild(dialogBox)
+}
