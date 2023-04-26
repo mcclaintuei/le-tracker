@@ -4,7 +4,6 @@ body {
     font-size: 1rem;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-
 }
 
 body p {
@@ -12,7 +11,7 @@ body p {
 }
 
 .header {
-    padding: 0 20px 0 20px;
+    padding: 0 20px;
     display: flex;
     background-color: #78184A;
     color: white;
@@ -20,17 +19,17 @@ body p {
 
 #body-section {
     display: flex;
+    justify-content: flex-start;
 }
 
-.container {
-    margin: 20px;
-    width: 250px;
-    height: 170px;
+.container,
+.records-container {
+    margin: 20px ;
     background-color: #80a5c5;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 10px 2px #80a5c588;
-    transition: .3s ease;
+    transition: 0.3s ease;
 }
 
 .container-btns {
@@ -46,25 +45,15 @@ body p {
     border-radius: 10px;
     font-size: 18px;
     margin-right: 10px;
-    transition: .3s ease;
-
+    transition: 0.3s ease;
 }
 
 .button:hover {
     background-color: #4B0082;
     transform: scale(1.05);
-
 }
 
-.records-container {
-    margin: 20px;
-    width: 450px;
-    background-color: #80a5c5;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px 2px #80a5c588;
-    transition: .3s ease;
-}
+
 
 .records-container .button {
     font-size: 15px;
@@ -73,15 +62,12 @@ body p {
 
 .js-input-grid,
 .js-records-grid {
-    width: 350px;
+    width: 380px;
     display: grid;
-    grid-template-columns: 100px 100px 70px 70px;
-    column-gap: 20px;
+    grid-template-columns: 100px 90px 70px 70px;
+    column-gap: 10px;
     row-gap: 10px;
     align-items: stretch;
-
-
-
 }
 
 .js-records-grid p {
@@ -91,7 +77,6 @@ body p {
     border: 1px solid #b1dbe7;
     border-radius: 10px;
     background-color: rgb(188, 223, 253);
-
 }
 
 .js-input-grid {
@@ -100,7 +85,7 @@ body p {
 
 .js-day-input,
 .js-count-input {
-    padding: 10px 10px;
+    padding: 10px;
     outline: none;
     border-radius: 10px;
     border: 1px solid #80a5c588;
@@ -125,13 +110,13 @@ button {
     padding: 10px 15px;
     outline: none;
     border: none;
-
 }
 
 @media (max-width: 477px) {
     body {
         font-size: 20px;
         overflow-y: auto;
+        flex-direction: column;
     }
 
     .header {
@@ -143,31 +128,29 @@ button {
 
     .button {
         width: 94%;
-        margin: 0 10px 0 10px;
+        margin: 10px 0;
 
     }
 
     #body-section {
         display: flex;
         flex-direction: column;
+        width: 100%;
     }
 
+    .records-container,
     .container {
-        width: 340px;
-        height: auto;
+        font-size: 12px;
+        width: 100%;
+        padding: 5px;
+        margin: 10px auto;
     }
-
+   
     .container-btns {
         display: flex;
         align-items: start;
 
-    }
-
-    .records-container {
-        font-size: 12px;
-        width: 370px;
-        padding: 5px;
-    }
+    }   
 
     .records-container .button {
         margin: 0;
@@ -194,11 +177,7 @@ button {
     }
 
     .container-btns .button {
-        
         height: 200px;
         margin: 0 10px 0 10px;
     }
-
-
-
 }
