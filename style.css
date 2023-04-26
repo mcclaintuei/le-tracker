@@ -118,10 +118,11 @@ button {
         font-size: 20px;
         overflow-y: auto;
         flex-direction: column;
+        align-items: center;
     }
 
     .header {
-        width: 100%;
+        width: 95%;
         align-items: center;
         padding: 10px;
         font-size: 18px;
@@ -137,12 +138,13 @@ button {
         display: flex;
         flex-direction: column;
         width: 100%;
+        align-items: center;
     }
 
     .records-container,
     .container {
         font-size: 12px;
-        width: 100%;
+        width: 95%;
         padding: 10px;
         margin: 10px auto;
     }
