@@ -13,8 +13,10 @@ body p {
 .header {
     padding: 0 20px;
     display: flex;
-    background-color: #78184A;
+    background-color: #163547;
     color: white;
+    box-shadow: 0 0 5px 0 rgb(188, 223, 253);
+
 }
 
 #body-section {
@@ -39,7 +41,7 @@ body p {
 .button {
     width: 100px;
     padding: 10px 15px;
-    background-color: #78184A;
+    background-color: #0b423b;
     color: aliceblue;
     border: none;
     border-radius: 10px;
@@ -49,7 +51,7 @@ body p {
 }
 
 .button:hover {
-    background-color: #4B0082;
+    background-color: #333e5c;
     transform: scale(1.05);
 }
 
