@@ -74,7 +74,11 @@ console.log(records)
 const weeklyrecords = JSON.parse(localStorage.getItem('weeklyrecords')) || {
     saturday: 0,
     sunday: 0,
-    monday: 0
+    monday: 0,
+    tuesday: 0,
+    wednesday: 0,
+    thursday: 0,
+    friday: 0
 }
 
 renderRecords()
@@ -108,6 +112,14 @@ function addRecord() {
         weeklyrecords.sunday = record.incidentCount;
     } else if (record.day === 'Monday') {
         weeklyrecords.monday = record.incidentCount;
+    } else if (record.day === 'Tuesday') {
+        weeklyrecords.tuesday = record.incidentCount;
+    } else if (record.day === 'Wednesday') {
+        weeklyrecords.wednesday = record.incidentCount;
+    } else if (record.day === 'Thursday') {
+        weeklyrecords.thursday = record.incidentCount;
+    } else if (record.day === 'Friday') {
+        weeklyrecords.friday = record.incidentCount;
     }
     console.log(weeklyrecords)
     let weeklyAverge = (parseInt(weeklyrecords.saturday) + parseInt(weeklyrecords.sunday) + parseInt(weeklyrecords.monday)) / 3
