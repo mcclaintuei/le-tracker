@@ -76,6 +76,7 @@ const weeklyrecords = JSON.parse(localStorage.getItem('weeklyrecords')) || {
     sunday: 0,
     monday: 0
 }
+
 renderRecords()
 function addRecord() {
     const record = {
