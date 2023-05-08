@@ -81,6 +81,10 @@ const weeklyrecords = JSON.parse(localStorage.getItem('weeklyrecords')) || {
     friday: 0
 }
 
+
+
+
+
 renderRecords()
 function addRecord() {
     const record = {
@@ -122,7 +126,10 @@ function addRecord() {
         weeklyrecords.friday = record.incidentCount;
     }
     console.log(weeklyrecords)
-    let weeklyAverge = (parseInt(weeklyrecords.saturday) + parseInt(weeklyrecords.sunday) + parseInt(weeklyrecords.monday)) / 3
+
+
+    let weeklyAverge = (parseInt(weeklyrecords.saturday)
+        + parseInt(weeklyrecords.sunday) + parseInt(weeklyrecords.monday)) / 3
     console.log(weeklyAverge.toFixed(1))
     weeklyAvergeElement.innerHTML = `Weekly Average: ${weeklyAverge.toFixed(1)}`
 
@@ -145,15 +152,35 @@ function renderRecords() {
     }
     recordsElement.innerHTML = recordsGridHTML;
 
-    document.querySelectorAll('.js-deleteRecord')
-        .forEach((deleteButton, index) => {
-            deleteButton.addEventListener('click', () => {
-                records.splice(index, 1);
-                renderRecords()
-                localStorage.setItem('records', JSON.stringify(records))
+    // document.querySelectorAll('.js-deleteRecord')
+    //     .forEach((deleteButton, index) => {
+    //         deleteButton.addEventListener('click', () => {
+    //             records.splice(index, 1);
+    //             renderRecords()
+    //             localStorage.setItem('records', JSON.stringify(records))
 
-            })
+    //         })
+    //     });
+
+    const deleteButtons = document.querySelectorAll('.js-deleteRecord');
+    for (let index = 0; index < deleteButtons.length; index++) {
+        const deleteButton = deleteButtons[index];
+        deleteButton.addEventListener('click', () => {
+            const deletedRecord = records.splice(index, 1)[0];
+
+            renderRecords();
+            localStorage.setItem('records', JSON.stringify(records));
+
+            // Update weekly records with deleted record's incident count
+            const day = deletedRecord.day.toLowerCase();
+            weeklyrecords[day] = 0;
+            localStorage.setItem('weeklyrecords', JSON.stringify(weeklyrecords));
+            console.log(weeklyrecords)
+
         });
+    }
+
+
 
     document.querySelectorAll('.js-editRecord')
         .forEach((editButton) => {
@@ -168,6 +195,34 @@ function renderRecords() {
     localStorage.setItem('records', JSON.stringify(records))
 }
 
+function editRecord(index) {
+    const record = records[index];
+    const day = record.day.toLowerCase();
+    const incidentCount = record.incidentCount;
+    
+    // Prompt user to edit the record
+    const newDay = prompt('Enter day of the week:', record.day);
+    const newIncidentCount = prompt('Enter incident count:', record.incidentCount);
+    
+    if (newDay && newIncidentCount) {
+        // Update the record object
+        record.day = newDay;
+        record.incidentCount = parseInt(newIncidentCount);
+
+        // Update the weeklyrecords object
+        weeklyrecords[day] -= incidentCount;
+        weeklyrecords[newDay.toLowerCase()] += record.incidentCount;
+
+        // Render the updated records
+        renderRecords();
+        
+        // Save the updated records to local storage
+        localStorage.setItem('records', JSON.stringify(records));
+        localStorage.setItem('weeklyrecords', JSON.stringify(weeklyrecords));
+        console.lo
+    }
+}
+
 
 function editRecord(index) {
     // create a dialog box or form
@@ -175,6 +230,8 @@ function editRecord(index) {
     dialogBox.classList.add('dialog-box')
 
     const record = records[index]
+    const day = record.day.toLowerCase();
+
 
     // create input fields for day and incident count
     const dayInput = document.createElement('input')
@@ -211,6 +268,25 @@ function editRecord(index) {
         dialogBox.remove()
     })
 
+    if (newDay && newIncidentCount) {
+        // Update the record object
+        record.day = newDay;
+        record.incidentCount = parseInt(newIncidentCount);
+
+        // Update the weeklyrecords object
+        weeklyrecords[day] -= incidentCount;
+        weeklyrecords[newDay.toLowerCase()] += record.incidentCount;
+
+        // Render the updated records
+        renderRecords();
+        
+        // Save the updated records to local storage
+        localStorage.setItem('records', JSON.stringify(records));
+        localStorage.setItem('weeklyrecords', JSON.stringify(weeklyrecords));
+        console.log(weeklyrecords)
+    }
+
+
     // add the input fields and buttons to the dialog box or form
     dialogBox.appendChild(dayInput)
     dialogBox.appendChild(countInput)
@@ -220,3 +296,5 @@ function editRecord(index) {
     // add the dialog box or form to the page
     document.querySelector('.records-container').appendChild(dialogBox)
 }
+
+
