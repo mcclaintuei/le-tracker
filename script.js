@@ -195,33 +195,33 @@ function renderRecords() {
     localStorage.setItem('records', JSON.stringify(records))
 }
 
-function editRecord(index) {
-    const record = records[index];
-    const day = record.day.toLowerCase();
-    const incidentCount = record.incidentCount;
+// function editRecord(index) {
+//     const record = records[index];
+//     const day = record.day.toLowerCase();
+//     const incidentCount = record.incidentCount;
     
-    // Prompt user to edit the record
-    const newDay = prompt('Enter day of the week:', record.day);
-    const newIncidentCount = prompt('Enter incident count:', record.incidentCount);
+//     // Prompt user to edit the record
+//     const newDay = prompt('Enter day of the week:', record.day);
+//     const newIncidentCount = prompt('Enter incident count:', record.incidentCount);
     
-    if (newDay && newIncidentCount) {
-        // Update the record object
-        record.day = newDay;
-        record.incidentCount = parseInt(newIncidentCount);
+//     if (newDay && newIncidentCount) {
+//         // Update the record object
+//         record.day = newDay;
+//         record.incidentCount = parseInt(newIncidentCount);
 
-        // Update the weeklyrecords object
-        weeklyrecords[day] -= incidentCount;
-        weeklyrecords[newDay.toLowerCase()] += record.incidentCount;
+//         // Update the weeklyrecords object
+//         weeklyrecords[day] -= incidentCount;
+//         weeklyrecords[newDay.toLowerCase()] += record.incidentCount;
 
-        // Render the updated records
-        renderRecords();
+//         // Render the updated records
+//         renderRecords();
         
-        // Save the updated records to local storage
-        localStorage.setItem('records', JSON.stringify(records));
-        localStorage.setItem('weeklyrecords', JSON.stringify(weeklyrecords));
-        console.lo
-    }
-}
+//         // Save the updated records to local storage
+//         localStorage.setItem('records', JSON.stringify(records));
+//         localStorage.setItem('weeklyrecords', JSON.stringify(weeklyrecords));
+//         console.lo
+//     }
+// }
 
 
 function editRecord(index) {
@@ -267,25 +267,6 @@ function editRecord(index) {
         // close the dialog box or form
         dialogBox.remove()
     })
-
-    if (newDay && newIncidentCount) {
-        // Update the record object
-        record.day = newDay;
-        record.incidentCount = parseInt(newIncidentCount);
-
-        // Update the weeklyrecords object
-        weeklyrecords[day] -= incidentCount;
-        weeklyrecords[newDay.toLowerCase()] += record.incidentCount;
-
-        // Render the updated records
-        renderRecords();
-        
-        // Save the updated records to local storage
-        localStorage.setItem('records', JSON.stringify(records));
-        localStorage.setItem('weeklyrecords', JSON.stringify(weeklyrecords));
-        console.log(weeklyrecords)
-    }
-
 
     // add the input fields and buttons to the dialog box or form
     dialogBox.appendChild(dayInput)
