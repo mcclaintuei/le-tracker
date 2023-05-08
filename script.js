@@ -130,13 +130,30 @@ function addRecord() {
     console.log(weeklyrecords)
 
 
-    let weeklyAverge = (parseInt(weeklyrecords.saturday)
-        + parseInt(weeklyrecords.sunday) + parseInt(weeklyrecords.monday)) / 3
-    console.log(weeklyAverge.toFixed(1))
+    let sum = 0;
+    for (let prop in weeklyrecords) {
+        if (weeklyrecords.hasOwnProperty(prop)) {
+            sum += weeklyrecords[prop];
+        }
+    }
+
+    console.log("Total Incidents",sum)
+
+    let recordsCount = 0;
+    for (const key in weeklyrecords) {
+        if (weeklyrecords[key] !== 0) {
+            recordsCount++;
+        }
+    }
+
+    console.log("Number of days", recordsCount);
+
+    weeklyAverge = sum/recordsCount;
     weeklyAvergeElement.innerHTML = `Weekly Average: ${weeklyAverge.toFixed(1)}`
 
     localStorage.setItem('weeklyrecords', JSON.stringify(weeklyrecords))
     localStorage.setItem('records', JSON.stringify(records))
+
 }
 
 function renderRecords() {
@@ -167,7 +184,6 @@ function renderRecords() {
             const day = deletedRecord.day.toLowerCase();
             weeklyrecords[day] = 0;
             localStorage.setItem('weeklyrecords', JSON.stringify(weeklyrecords));
-            console.log(weeklyrecords)
 
         });
     }
