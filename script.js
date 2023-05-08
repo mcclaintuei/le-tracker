@@ -72,13 +72,13 @@ countInputElement.addEventListener('keydown', (event) => {
 const records = JSON.parse(localStorage.getItem('records')) || []
 console.log(records)
 const weeklyrecords = JSON.parse(localStorage.getItem('weeklyrecords')) || {
-    saturday: 0,
-    sunday: 0,
     monday: 0,
     tuesday: 0,
     wednesday: 0,
     thursday: 0,
-    friday: 0
+    friday: 0,
+    saturday: 0,
+    sunday: 0
 }
 
 
@@ -91,8 +91,9 @@ function addRecord() {
         day: '',
         incidentCount: 0,
     }
+
     record.day = dayInputElement.value;
-    record.incidentCount = countInputElement.value;
+    record.incidentCount = parseInt(countInputElement.value);
     if (!record.day && !record.incidentCount) {
         alert('Cannot add empty record')
     } else if (!record.day) {
@@ -110,11 +111,7 @@ function addRecord() {
     console.log(records)
 
     //Weekly Records Storage
-    if (record.day === 'Saturday') {
-        weeklyrecords.saturday = record.incidentCount;
-    } else if (record.day === 'Sunday') {
-        weeklyrecords.sunday = record.incidentCount;
-    } else if (record.day === 'Monday') {
+    if (record.day === 'Monday') {
         weeklyrecords.monday = record.incidentCount;
     } else if (record.day === 'Tuesday') {
         weeklyrecords.tuesday = record.incidentCount;
@@ -124,7 +121,12 @@ function addRecord() {
         weeklyrecords.thursday = record.incidentCount;
     } else if (record.day === 'Friday') {
         weeklyrecords.friday = record.incidentCount;
+    } else if (record.day === 'Saturday') {
+        weeklyrecords.saturday = record.incidentCount;
+    } else if (record.day === 'Sunday') {
+        weeklyrecords.sunday = record.incidentCount;
     }
+
     console.log(weeklyrecords)
 
 
@@ -152,16 +154,6 @@ function renderRecords() {
     }
     recordsElement.innerHTML = recordsGridHTML;
 
-    // document.querySelectorAll('.js-deleteRecord')
-    //     .forEach((deleteButton, index) => {
-    //         deleteButton.addEventListener('click', () => {
-    //             records.splice(index, 1);
-    //             renderRecords()
-    //             localStorage.setItem('records', JSON.stringify(records))
-
-    //         })
-    //     });
-
     const deleteButtons = document.querySelectorAll('.js-deleteRecord');
     for (let index = 0; index < deleteButtons.length; index++) {
         const deleteButton = deleteButtons[index];
@@ -180,8 +172,6 @@ function renderRecords() {
         });
     }
 
-
-
     document.querySelectorAll('.js-editRecord')
         .forEach((editButton) => {
             editButton.addEventListener('click', () => {
@@ -195,33 +185,7 @@ function renderRecords() {
     localStorage.setItem('records', JSON.stringify(records))
 }
 
-// function editRecord(index) {
-//     const record = records[index];
-//     const day = record.day.toLowerCase();
-//     const incidentCount = record.incidentCount;
-    
-//     // Prompt user to edit the record
-//     const newDay = prompt('Enter day of the week:', record.day);
-//     const newIncidentCount = prompt('Enter incident count:', record.incidentCount);
-    
-//     if (newDay && newIncidentCount) {
-//         // Update the record object
-//         record.day = newDay;
-//         record.incidentCount = parseInt(newIncidentCount);
 
-//         // Update the weeklyrecords object
-//         weeklyrecords[day] -= incidentCount;
-//         weeklyrecords[newDay.toLowerCase()] += record.incidentCount;
-
-//         // Render the updated records
-//         renderRecords();
-        
-//         // Save the updated records to local storage
-//         localStorage.setItem('records', JSON.stringify(records));
-//         localStorage.setItem('weeklyrecords', JSON.stringify(weeklyrecords));
-//         console.lo
-//     }
-// }
 
 
 function editRecord(index) {
@@ -230,7 +194,9 @@ function editRecord(index) {
     dialogBox.classList.add('dialog-box')
 
     const record = records[index]
-    const day = record.day.toLowerCase();
+    const day = record.day.toLowerCase()
+    const incidentCount = record.incidentCount;
+
 
 
     // create input fields for day and incident count
@@ -246,16 +212,27 @@ function editRecord(index) {
     const submitButton = document.createElement('button')
     submitButton.textContent = 'Save'
     submitButton.addEventListener('click', () => {
-        // update the record with the new values
-        record.day = dayInput.value
-        record.incidentCount = countInput.value
 
-        // save the updated records to localStorage
-        localStorage.setItem('records', JSON.stringify(records))
+        const newDay = dayInput.value.toLowerCase();
+        const newIncidentCount = parseInt(countInput.value);
 
-        // re-render the records
-        renderRecords()
+        if (newDay && newIncidentCount) {
+            // Update the record object
+            record.day = newDay;
+            record.incidentCount = newIncidentCount;
 
+            // Update the weeklyrecords object
+            weeklyrecords[day] -= incidentCount;
+            weeklyrecords[newDay] += newIncidentCount;
+
+            // Render the updated records
+            renderRecords();
+
+            // Save the updated records to local storage
+            localStorage.setItem('records', JSON.stringify(records));
+            localStorage.setItem('weeklyrecords', JSON.stringify(weeklyrecords));
+            console.log('Records updated:', weeklyrecords);
+        }
         // close the dialog box or form
         dialogBox.remove()
     })
