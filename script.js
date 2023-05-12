@@ -81,10 +81,6 @@ const weeklyrecords = JSON.parse(localStorage.getItem('weeklyrecords')) || {
     sunday: 0
 }
 
-
-
-
-
 renderRecords()
 // function addRecord() {
 //     const record = {
@@ -214,8 +210,6 @@ function addRecord() {
     localStorage.setItem('records', JSON.stringify(records));
 }
 
-
-
 function renderRecords() {
     let recordsGridHTML = []
     for (let index = 0; index < records.length; index++) {
@@ -261,9 +255,6 @@ function renderRecords() {
     localStorage.setItem('records', JSON.stringify(records))
 }
 
-
-
-
 function editRecord(index) {
     // create a dialog box or form
     const dialogBox = document.createElement('div')
@@ -272,8 +263,6 @@ function editRecord(index) {
     const record = records[index]
     const day = record.day.toLowerCase()
     const incidentCount = record.incidentCount;
-
-
 
     // create input fields for day and incident count
     const dayInput = document.createElement('input')
@@ -331,7 +320,7 @@ function editRecord(index) {
     document.querySelector('.records-container').appendChild(dialogBox)
 }
 
-
+//Daily Theme Selector
 const today = new Date().getDay();
 // Define an array of color themes, with one for each day of the week
 const colorThemes = [
