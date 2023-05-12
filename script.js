@@ -86,6 +86,78 @@ const weeklyrecords = JSON.parse(localStorage.getItem('weeklyrecords')) || {
 
 
 renderRecords()
+// function addRecord() {
+//     const record = {
+//         day: '',
+//         incidentCount: 0,
+//     }
+
+//     record.day = dayInputElement.value;
+//     record.incidentCount = parseInt(countInputElement.value);
+
+//     if (!record.day && !record.incidentCount) {
+//         alert('Cannot add empty record')
+//     } else if (!record.day) {
+//         alert('Day is required')
+//     } else if (!record.incidentCount) {
+//         alert('incident count is required')
+//     } else if (record.incidentCount < 0) {
+//         alert('incident count must be >= 0')
+//     } else {
+//         records.push(record)
+//     }
+
+//     dayInputElement.value = ''
+//     countInputElement.value = ''
+//     renderRecords()
+//     console.log(records)
+
+//     //Weekly Records Storage
+//     if (record.day === 'Monday') {
+//         weeklyrecords.monday = record.incidentCount;
+//     } else if (record.day === 'Tuesday') {
+//         weeklyrecords.tuesday = record.incidentCount;
+//     } else if (record.day === 'Wednesday') {
+//         weeklyrecords.wednesday = record.incidentCount;
+//     } else if (record.day === 'Thursday') {
+//         weeklyrecords.thursday = record.incidentCount;
+//     } else if (record.day === 'Friday') {
+//         weeklyrecords.friday = record.incidentCount;
+//     } else if (record.day === 'Saturday') {
+//         weeklyrecords.saturday = record.incidentCount;
+//     } else if (record.day === 'Sunday') {
+//         weeklyrecords.sunday = record.incidentCount;
+//     }
+
+//     console.log(weeklyrecords)
+
+
+//     let sum = 0;
+//     for (let prop in weeklyrecords) {
+//         if (weeklyrecords.hasOwnProperty(prop)) {
+//             sum += weeklyrecords[prop];
+//         }
+//     }
+
+//     console.log("Total Incidents", sum)
+
+//     let recordsCount = 0;
+//     for (const key in weeklyrecords) {
+//         if (weeklyrecords[key] !== 0) {
+//             recordsCount++;
+//         }
+//     }
+
+//     console.log("Number of days", recordsCount);
+
+//     weeklyAverge = sum / recordsCount;
+//     weeklyAvergeElement.innerHTML = `Weekly Average: ${weeklyAverge.toFixed(1)}`
+
+//     localStorage.setItem('weeklyrecords', JSON.stringify(weeklyrecords))
+//     localStorage.setItem('records', JSON.stringify(records))
+
+// }
+
 function addRecord() {
     const record = {
         day: '',
@@ -103,58 +175,46 @@ function addRecord() {
     } else if (record.incidentCount < 0) {
         alert('incident count must be >= 0')
     } else {
-        records.push(record)
-    }
-    dayInputElement.value = ''
-    countInputElement.value = ''
-    renderRecords()
-    console.log(records)
-
-    //Weekly Records Storage
-    if (record.day === 'Monday') {
-        weeklyrecords.monday = record.incidentCount;
-    } else if (record.day === 'Tuesday') {
-        weeklyrecords.tuesday = record.incidentCount;
-    } else if (record.day === 'Wednesday') {
-        weeklyrecords.wednesday = record.incidentCount;
-    } else if (record.day === 'Thursday') {
-        weeklyrecords.thursday = record.incidentCount;
-    } else if (record.day === 'Friday') {
-        weeklyrecords.friday = record.incidentCount;
-    } else if (record.day === 'Saturday') {
-        weeklyrecords.saturday = record.incidentCount;
-    } else if (record.day === 'Sunday') {
-        weeklyrecords.sunday = record.incidentCount;
+        // Check if record with same day already exists
+        const existingRecordIndex = records.findIndex(r => r.day === record.day);
+        if (existingRecordIndex >= 0) {
+            records[existingRecordIndex] = record; // Update existing record
+        } else {
+            records.push(record); // Add new record
+        }
     }
 
-    console.log(weeklyrecords)
+    dayInputElement.value = '';
+    countInputElement.value = '';
+    renderRecords();
+    console.log(records);
 
+    // Update weekly records with new or updated record's incident count
+    const day = record.day.toLowerCase();
+    weeklyrecords[day] = record.incidentCount;
+    localStorage.setItem('weeklyrecords', JSON.stringify(weeklyrecords));
 
     let sum = 0;
-    for (let prop in weeklyrecords) {
-        if (weeklyrecords.hasOwnProperty(prop)) {
-            sum += weeklyrecords[prop];
-        }
-    }
-
-    console.log("Total Incidents", sum)
-
     let recordsCount = 0;
     for (const key in weeklyrecords) {
-        if (weeklyrecords[key] !== 0) {
-            recordsCount++;
+        if (weeklyrecords.hasOwnProperty(key)) {
+            sum += weeklyrecords[key];
+            if (weeklyrecords[key] !== 0) {
+                recordsCount++;
+            }
         }
     }
 
-    console.log("Number of days", recordsCount);
+    console.log('Total Incidents', sum);
+    console.log('Number of days', recordsCount);
 
     weeklyAverge = sum / recordsCount;
-    weeklyAvergeElement.innerHTML = `Weekly Average: ${weeklyAverge.toFixed(1)}`
+    weeklyAvergeElement.innerHTML = `Weekly Average: ${weeklyAverge.toFixed(1)}`;
 
-    localStorage.setItem('weeklyrecords', JSON.stringify(weeklyrecords))
-    localStorage.setItem('records', JSON.stringify(records))
-
+    localStorage.setItem('records', JSON.stringify(records));
 }
+
+
 
 function renderRecords() {
     let recordsGridHTML = []
