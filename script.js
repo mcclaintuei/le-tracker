@@ -137,7 +137,7 @@ function addRecord() {
         }
     }
 
-    console.log("Total Incidents",sum)
+    console.log("Total Incidents", sum)
 
     let recordsCount = 0;
     for (const key in weeklyrecords) {
@@ -148,7 +148,7 @@ function addRecord() {
 
     console.log("Number of days", recordsCount);
 
-    weeklyAverge = sum/recordsCount;
+    weeklyAverge = sum / recordsCount;
     weeklyAvergeElement.innerHTML = `Weekly Average: ${weeklyAverge.toFixed(1)}`
 
     localStorage.setItem('weeklyrecords', JSON.stringify(weeklyrecords))
@@ -272,3 +272,48 @@ function editRecord(index) {
 }
 
 
+const today = new Date().getDay();
+// Define an array of color themes, with one for each day of the week
+const colorThemes = [
+    {
+        primary: '#0f1c25',
+        secondary: '#3c7692',
+        accent: '#b7e0f1'
+    },
+    {
+        primary: '#2c0f0f',
+        secondary: '#862323',
+        accent: '#d1d1d1'
+    },
+    {
+        primary: '#0f250c',
+        secondary: '#5c8e51',
+        accent: '#d6f8d8'
+    },
+    {
+        primary: '#270f2b',
+        secondary: '#8c4d8f',
+        accent: '#f1d8f8'
+    },
+    {
+        primary: '#492e07',
+        secondary: '#d08c2a',
+        accent: '#fff5d7'
+    },
+    {
+        primary: '#013131',
+        secondary: '#189d9d',
+        accent: '#c4eeee'
+    },
+    {
+        primary: '#222222',
+        secondary: '#666',
+        accent: '#e6e6e6'
+    }
+];
+
+// Set the color theme based on the current day of the week
+document.documentElement.style.setProperty('--primary-color', colorThemes[today].primary);
+document.documentElement.style.setProperty('--secondary-color', colorThemes[today].secondary);
+document.documentElement.style.setProperty('--accent-color', colorThemes[today].accent);
+console.log(today)
