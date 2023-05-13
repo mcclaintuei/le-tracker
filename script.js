@@ -290,6 +290,6 @@ const colorThemes = [
 ];
 
 // Set the color theme based on the current day of the week
-// document.documentElement.style.setProperty('--primary-color', colorThemes[today].primary);
-// document.documentElement.style.setProperty('--secondary-color', colorThemes[today].secondary);
-// document.documentElement.style.setProperty('--accent-color', colorThemes[today].accent);
+document.documentElement.style.setProperty('--primary-color', colorThemes[today].primary);
+document.documentElement.style.setProperty('--secondary-color', colorThemes[today].secondary);
+document.documentElement.style.setProperty('--accent-color', colorThemes[today].accent);
