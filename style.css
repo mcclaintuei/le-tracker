@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
 :root {
     --primary-color: #013131;
     --secondary-color: #189d9d;
@@ -12,47 +15,45 @@
     --theme1-dark: #1e4965;
     --theme1-medium: #3c7692;
     --theme1-light: #74a8bf;
-  
+
     /* Theme 2: Red */
     --theme2-dark: #2b0f0f;
     --theme2-medium: #b73030;
     --theme2-light: #de7777;
-  
+
     /* Theme 3: Green */
     --theme3-dark: #335d2d;
     --theme3-medium: #5c8e51;
     --theme3-light: #8dc490;
-  
+
     /* Theme 4: Purple */
     --theme4-dark: #4f2456;
     --theme4-medium: #8c4d8f;
     --theme4-light: #c0a0c9;
-  
+
     /* Theme 5: Orange */
     --theme5-dark: #a46200;
     --theme5-medium: #d08c2a;
     --theme5-light: #f1c26d;
-  
+
     /* Theme 6: Teal */
     --theme6-dark: #013131;
     --theme6-medium: #189d9d;
     --theme6-light: #a5afaf;
-  
+
     /* Theme 7: Gray */
     --theme7-dark: #333;
     --theme7-medium: #666;
     --theme7-light: #999;
-  }
-  
-
-
+}
 
 body {
     overflow: hidden;
     background-color: var(--primary-color);
     font-size: 18px;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
 }
 
 body p {
@@ -217,7 +218,7 @@ button {
         max-width: none;
     }
 
-    #body-section > div.container > button {
+    #body-section>div.container>button {
         margin-left: 10px;
         margin-right: 10px;
 
