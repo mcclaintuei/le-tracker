@@ -2,7 +2,7 @@
 
 
 :root {
-    --primary-color: #013131;
+    --primary-color: #034d40;
     --secondary-color: #189d9d;
     --accent-color: #c4eeee;
     --text-color-dark: #000000;
@@ -12,39 +12,39 @@
 
 :root {
     /* Theme 1: Blue */
-    --theme1-dark: #1e4965;
-    --theme1-medium: #3c7692;
-    --theme1-light: #74a8bf;
+    --theme1-dark: #1c394e;
+    --theme1-medium: #4fa1ca;
+    --theme1-light: #b7e0f1;
 
     /* Theme 2: Red */
-    --theme2-dark: #2b0f0f;
-    --theme2-medium: #b73030;
-    --theme2-light: #de7777;
+    --theme2-dark: #2c0f0f;
+    --theme2-medium: #862323;
+    --theme2-light: #d1d1d1;
 
     /* Theme 3: Green */
-    --theme3-dark: #335d2d;
+    --theme3-dark: #0f250c;
     --theme3-medium: #5c8e51;
-    --theme3-light: #8dc490;
+    --theme3-light: #d6f8d8;
 
     /* Theme 4: Purple */
-    --theme4-dark: #4f2456;
+    --theme4-dark: #270f2b;
     --theme4-medium: #8c4d8f;
-    --theme4-light: #c0a0c9;
+    --theme4-light: #f1d8f8;
 
     /* Theme 5: Orange */
-    --theme5-dark: #a46200;
+    --theme5-dark: #492e07;
     --theme5-medium: #d08c2a;
-    --theme5-light: #f1c26d;
+    --theme5-light: #fff5d7;
 
     /* Theme 6: Teal */
-    --theme6-dark: #013131;
+    --theme6-dark: #013129;
     --theme6-medium: #189d9d;
-    --theme6-light: #a5afaf;
+    --theme6-light: #c4eeee;
 
     /* Theme 7: Gray */
-    --theme7-dark: #333;
+    --theme7-dark: #222222;
     --theme7-medium: #666;
-    --theme7-light: #999;
+    --theme7-light: #e6e6e6;
 }
 
 body {

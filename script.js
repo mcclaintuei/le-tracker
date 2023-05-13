@@ -253,32 +253,32 @@ const today = new Date().getDay();
 // Define an array of color themes, with one for each day of the week
 const colorThemes = [
     {
-        primary: '#0f1c25',
-        secondary: '#3c7692',
-        accent: '#b7e0f1'
+        primary: '#1c394e',
+        secondary: '#4fa1ca',
+        accent: '#f2ffff'
     },
     {
-        primary: '#2c0f0f',
+        primary: '#4d1616',
         secondary: '#862323',
         accent: '#d1d1d1'
     },
     {
-        primary: '#0f250c',
+        primary: '#1c4417',
         secondary: '#5c8e51',
         accent: '#d6f8d8'
     },
     {
-        primary: '#270f2b',
+        primary: '#401847',
         secondary: '#8c4d8f',
         accent: '#f1d8f8'
     },
     {
-        primary: '#492e07',
+        primary: '#4e3410',
         secondary: '#d08c2a',
         accent: '#fff5d7'
     },
     {
-        primary: '#013131',
+        primary: '#034d40',
         secondary: '#189d9d',
         accent: '#c4eeee'
     },
@@ -290,7 +290,6 @@ const colorThemes = [
 ];
 
 // Set the color theme based on the current day of the week
-document.documentElement.style.setProperty('--primary-color', colorThemes[today].primary);
-document.documentElement.style.setProperty('--secondary-color', colorThemes[today].secondary);
-document.documentElement.style.setProperty('--accent-color', colorThemes[today].accent);
-console.log(today)
+// document.documentElement.style.setProperty('--primary-color', colorThemes[today].primary);
+// document.documentElement.style.setProperty('--secondary-color', colorThemes[today].secondary);
+// document.documentElement.style.setProperty('--accent-color', colorThemes[today].accent);
