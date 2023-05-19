@@ -293,3 +293,23 @@ const colorThemes = [
 document.documentElement.style.setProperty('--primary-color', colorThemes[today].primary);
 document.documentElement.style.setProperty('--secondary-color', colorThemes[today].secondary);
 document.documentElement.style.setProperty('--accent-color', colorThemes[today].accent);
+
+const themeIconElement = document.querySelector('.theme-switch');
+
+themeIconElement.addEventListener('click', () => {
+    changeTheme();
+})
+let currentTheme = today;
+
+function changeTheme() {
+    // let currentTheme = today
+
+    if (currentTheme === 6) {
+        currentTheme = -1;
+    }
+    currentTheme += 1;
+    document.documentElement.style.setProperty('--primary-color', colorThemes[currentTheme].primary);
+    document.documentElement.style.setProperty('--secondary-color', colorThemes[currentTheme].secondary);
+    document.documentElement.style.setProperty('--accent-color', colorThemes[currentTheme].accent);
+    console.log(currentTheme)
+}

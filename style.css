@@ -63,11 +63,25 @@ body p {
 .header {
     padding: 0 20px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: var(--secondary-color);
     color: white;
     box-shadow: 0 0 5px 0 rgb(35, 40, 44);
 
 }
+
+.header i {
+    padding: 25px;
+    font-size: 30px;
+    transition: .3s ease;
+}
+
+.header i:hover{
+    color: gold;
+    transform: scale(1.2);
+}
+
 
 #body-section {
     display: flex;
