@@ -295,8 +295,9 @@ document.documentElement.style.setProperty('--secondary-color', colorThemes[toda
 document.documentElement.style.setProperty('--accent-color', colorThemes[today].accent);
 
 const themeIconElement = document.querySelector('.theme-switch');
-let currentTheme = today;
 
+//Theme Switch Button 
+let currentTheme = today;
 themeIconElement.addEventListener('click', () => {
     if (currentTheme === 6) {
         currentTheme = -1;
