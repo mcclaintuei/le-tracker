@@ -107,7 +107,7 @@ body p {
 .button {
     width: 100px;
     padding: 10px 15px;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background:  var(--primary-color);
     color: aliceblue;
     border: none;
     border-radius: 10px;
@@ -118,7 +118,7 @@ body p {
 
 
 .button:hover {
-    background-color: #333e5c;
+    background: #333e5c;
     box-shadow: 2px 2px 4px #333e5c;
 }
 
