@@ -199,13 +199,18 @@ function editRecord(index) {
 
     const countInput = document.createElement('input')
     countInput.type = 'number'
+    countInput.classList.add('new-count-input');
     countInput.value = record.incidentCount
+
 
     // create a submit button
     const submitButton = document.createElement('button')
     submitButton.textContent = 'Save'
     submitButton.addEventListener('click', () => {
+        saveNewInput();
+    })
 
+    function saveNewInput() {
         const newDay = dayInput.value.toLowerCase();
         const newIncidentCount = parseInt(countInput.value);
 
@@ -228,7 +233,8 @@ function editRecord(index) {
         }
         // close the dialog box or form
         dialogBox.remove()
-    })
+    }
+
 
     // create a cancel button
     const cancelButton = document.createElement('button')
@@ -244,8 +250,17 @@ function editRecord(index) {
     dialogBox.appendChild(submitButton)
     dialogBox.appendChild(cancelButton)
 
+
+
     // add the dialog box or form to the page
     document.querySelector('.records-container').appendChild(dialogBox)
+    document.querySelector('.new-count-input').addEventListener('keypress',(event)=> {
+        keypressed = event.key
+        if (keypressed === 'Enter'){
+            saveNewInput();
+        }
+    })
+
 }
 
 //Daily Theme Selector
@@ -305,5 +320,6 @@ themeIconElement.addEventListener('click', () => {
     currentTheme += 1;
     document.documentElement.style.setProperty('--primary-color', colorThemes[currentTheme].primary);
     document.documentElement.style.setProperty('--secondary-color', colorThemes[currentTheme].secondary);
-    document.documentElement.style.setProperty('--accent-color', colorThemes[currentTheme].accent);})
+    document.documentElement.style.setProperty('--accent-color', colorThemes[currentTheme].accent);
+})
 
