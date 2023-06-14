@@ -69,7 +69,7 @@ span {
     padding: 10px;
 }
 
-.button:hover{
+.button:hover {
     box-shadow: 0 0 10px rgba(85, 202, 248, 0.349);
     background-color: #0d8585;
 
@@ -182,7 +182,7 @@ span {
 
 }
 
-#lesson{
+#lesson {
     padding-bottom: 10px;
 }
 
@@ -196,7 +196,9 @@ ol li {
     font-size: 15px;
 }
 
-img{padding: 15px;}
+img {
+    padding: 15px;
+}
 
 
 @media (max-width: 450px) {
@@ -240,4 +242,11 @@ img{padding: 15px;}
         width: 100%;
         margin: 0;
     }
+
+    .image {
+        object-fit: cover;
+        width: 90%
+    }
+
+    ;
 }
