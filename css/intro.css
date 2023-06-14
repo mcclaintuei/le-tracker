@@ -23,6 +23,7 @@ body {
 }
 #main{
     display: flex;
+    width: 100%;
 }
 .button {
     width: 100px;
@@ -38,7 +39,7 @@ body {
 
 .content {
     background-color: #242a2c;
-    width: 700px;
+    width: 50%;
     height: auto;
     margin: 20px;
     border-radius: 10px;
@@ -50,7 +51,7 @@ body {
     margin: 0;
 }
 
-.content h3 {
+ h3 {
     padding-left: 20px;
     padding-top: 10px;
     margin: 0;
@@ -58,22 +59,23 @@ body {
     font-weight: 200;
 }
 
-.content p {
+ p {
     padding-left: 20px;
     padding-top: 10px;
+    font-size: 16px;
     margin: 0;
-    color: #ffffff;
+    color: #bfc3cc;
     font-weight: 200;
 }
 
-.content ol li {
+ ol li {
     padding-left: 20px;
     padding-top: 10px;
     padding-right: 20px;
     margin: 0;
-    color: #ffffff;
+    color: #bfc3cc;
     font-weight: 200;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 span {
@@ -81,9 +83,9 @@ span {
 }
 
 .lessons {
-    background-color: #2f373a;
-    width: 700px;
-    height: 50px;
+    background-color: #1a1f20;
+    width: 50%;
+    height: auto;
     margin: 20px;
     border-radius: 10px;
 
