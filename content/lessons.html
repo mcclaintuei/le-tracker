@@ -154,6 +154,65 @@
             and between the CPU and other system components. The buses provide pathways for data and address transfer,
             while the clock ensures synchronized and timely execution of instructions and operations.</p>
     </section>
+    <section id="lesson4">
+        <h3>The instruction execution process</h3>
+        <p>The instruction execution process, also known as the instruction cycle or fetch-decode-execute cycle, is the
+            fundamental sequence of steps that a CPU follows to execute instructions. It involves retrieving
+            instructions from memory, decoding them, executing the required operations, and storing the results. Let's
+            explore each step in detail:</p>
+
+        <h3>Fetch:</h3>
+        <p>The CPU fetches the next instruction from memory to be executed. This process involves the following
+            sub-steps:</p>
+        <ol>
+            <li><span>Program Counter (PC) Update:</span> The CPU determines the address of the next instruction to be
+                fetched by reading the value stored in the Program Counter, which typically points to the memory address
+                of the next instruction.</li>
+            <li><span>Instruction Fetch:</span> The CPU retrieves the instruction from the memory address indicated by
+                the Program Counter and loads it into a special register called the Instruction Register (IR).</li>
+        </ol>
+
+        <h3>Decode:</h3>
+        <p>In this step, the CPU decodes the fetched instruction to determine the operation to be performed and the
+            operands involved. The instruction is examined and interpreted based on the CPU's Instruction Set
+            Architecture (ISA). The decode process involves extracting the opcode (operation code) and any associated
+            operands or addressing modes.</p>
+
+        <h3>Execute:</h3>
+        <p>Once the instruction is decoded, the CPU performs the necessary calculations or operations indicated by the
+            instruction. The execution step varies depending on the type of instruction and the specific operations
+            involved. Examples of execution steps include:</p>
+        <ol>
+            <li><span>Arithmetic Operations:</span> The Arithmetic Logic Unit (ALU) performs arithmetic calculations,
+                such as addition, subtraction, multiplication, and division, on the operands provided.</li>
+            <li><span>Logical Operations:</span> The ALU executes logical operations, such as AND, OR, NOT, and XOR, on
+                the operands.</li>
+            <li><span>Data Transfer:</span> The CPU moves data between registers, memory locations, or input/output
+                devices as instructed by the instruction.</li>
+            <li><span>Control Operations:</span> The Control Unit (CU) manages control operations, such as branching
+                (changing the program flow) or jumping to a different memory location based on specified conditions.
+            </li>
+        </ol>
+
+        <h3>Store:</h3>
+        <p>After the execution of the instruction, the CPU may need to store the result in memory or a register. This
+            step involves writing the result of the executed instruction back to memory or a designated register,
+            depending on the specific instruction and its purpose.</p>
+
+        <p>Once the store step is completed, the CPU proceeds to fetch the next instruction, starting the cycle again.
+            This process repeats continuously, allowing the CPU to execute a sequence of instructions one after another,
+            forming the basis of program execution.</p>
+
+        <p>It's important to note that the instruction execution process may be further optimized through techniques
+            like pipelining, where multiple instructions are overlapped in different stages of the process, or
+            out-of-order execution, where instructions are executed in a different order than they appear in the program
+            to maximize performance.</p>
+
+        <p>The instruction execution process is at the core of the CPU's functioning, enabling it to carry out
+            computations, perform logical operations, and control various aspects of program execution and system
+            functioning.</p>
+
+    </section>
 </body>
 
 </html>
