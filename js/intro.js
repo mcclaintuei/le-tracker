@@ -57,8 +57,3 @@ document.querySelector('.io').addEventListener('click', () => {
   loadContent('content/lessons.html', 'lesson5','.lessons');
   
 })
-document.querySelector('.io').addEventListener('click', () => {
-  // loadContent('content/lessons.html', 'content','.content');
-  loadContent('content/lessons.html', 'lesson6','.lessons');
-  
-})
