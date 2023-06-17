@@ -27,13 +27,27 @@ function loadContent(url, sectionId,contentClass) {
 
 
 document.querySelector('.js-load-lesson').addEventListener('click', () => {
-  loadContent('content/lessons.html', 'content','.content');
+  // loadContent('content/lessons.html', 'content','.content');
   loadContent('content/lessons.html', 'lesson2','.lessons');
   
 })
 
 
 
+document.querySelector('.cpu').addEventListener('click', () => {
+  // loadContent('content/lessons.html', 'content','.content');
+  loadContent('content/lessons.html', 'lesson2','.lessons');
+  
+})
+document.querySelector('.ram').addEventListener('click', () => {
+  // loadContent('content/lessons.html', 'content','.content');
+  loadContent('content/lessons.html', 'lesson3','.lessons');
+  
+})
 
-
+document.querySelector('.storage').addEventListener('click', () => {
+  // loadContent('content/lessons.html', 'content','.content');
+  loadContent('content/lessons.html', 'lesson4','.lessons');
+  
+})
 
