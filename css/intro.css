@@ -208,6 +208,10 @@ img {
     padding: 15px;
 }
 
+.cpu:hover,.ram:hover,.storage:hover,.io:hover{
+    color: gold;
+}
+
 
 @media (max-width: 450px) {
     #main {
