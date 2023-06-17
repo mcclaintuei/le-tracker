@@ -28,7 +28,7 @@ function loadContent(url, sectionId,contentClass) {
 
 document.querySelector('.js-load-lesson').addEventListener('click', () => {
   // loadContent('content/lessons.html', 'content','.content');
-  loadContent('content/lessons.html', 'lesson7','.lessons');
+  loadContent('content/lessons.html', 'lesson3','.lessons');
   
 })
 
