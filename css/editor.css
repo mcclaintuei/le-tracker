@@ -53,12 +53,17 @@ p {
     background-color: var(--secondary-color);
     color: var(--text-color-light);
     border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(19, 19, 20, 0.514);
+    transition: 0.5s ease;
 
+}
+
+.editor:hover{
 }
 
 .output {
     margin: 20px;
-    padding: 10px;
     width: 90vh;
     height: 50vh;
     overflow: scroll;
