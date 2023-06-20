@@ -28,7 +28,7 @@ function loadContent(url, sectionId,contentClass) {
 
 document.querySelector('.js-load-lesson').addEventListener('click', () => {
   // loadContent('content/lessons.html', 'content','.content');
-  loadContent('content/lessons.html', 'lesson7','.lessons');
+  loadContent('content/lessons.html', 'lesson6','.lessons');
   
 })
 
@@ -58,4 +58,24 @@ document.querySelector('.io').addEventListener('click', () => {
   
 })
 
+document.querySelector('.hardware-and-software').addEventListener('click', () => {
+  // loadContent('content/lessons.html', 'content','.content');
+  loadContent('content/lessons.html', 'lesson6','.lessons');
+  
+})
+document.querySelector('.os').addEventListener('click', () => {
+  // loadContent('content/lessons.html', 'content','.content');
+  loadContent('content/lessons.html', 'lesson7','.lessons');
+  
+})
+document.querySelector('.as').addEventListener('click', () => {
+  // loadContent('content/lessons.html', 'content','.content');
+  loadContent('content/lessons.html', 'lesson8','.lessons');
+  
+})
+document.querySelector('.programming').addEventListener('click', () => {
+  // loadContent('content/lessons.html', 'content','.content');
+  loadContent('content/lessons.html', 'lesson9','.lessons');
+  
+})
 

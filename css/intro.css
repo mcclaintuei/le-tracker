@@ -212,11 +212,19 @@ img {
     padding: 15px;
 }
 
+.hardware-and-software:hover,
+.os:hover,
+.as:hover,
+.programming:hover,
 .cpu:hover,
 .ram:hover,
 .storage:hover,
 .io:hover {
-    color: gold;
+    background: gold;
+    color: var(--text-color-dark);
+    padding: 2px;
+    border-radius: 2px;
+    transition: 0.2s ease-in-out;
 }
 
 
