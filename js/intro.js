@@ -7,6 +7,9 @@ function loadContent(url, sectionId,contentClass) {
       const parser = new DOMParser();
       const htmlDoc = parser.parseFromString(data, 'text/html');
       const section = htmlDoc.getElementById(sectionId);
+      section.setAttribute('data-simplebar','')
+      section.setAttribute('data-simplebar-auto-hide','false')
+
       console.log(sectionId)
       if (section) {
         const contentElement = document.querySelector(contentClass);
@@ -16,6 +19,7 @@ function loadContent(url, sectionId,contentClass) {
           contentElement.style.opacity = 1;
           contentElement.style.transition = 'opacity 0.5s ease';
         }, 0);
+        
       } else {
         console.log(`Section with ID '${sectionId}' not found.`);
       }
@@ -28,54 +32,21 @@ function loadContent(url, sectionId,contentClass) {
 
 document.querySelector('.js-load-lesson').addEventListener('click', () => {
   // loadContent('content/lessons.html', 'content','.content');
-  loadContent('content/lessons.html', 'lesson6','.lessons');
-  
-})
-
-
-
-document.querySelector('.cpu').addEventListener('click', () => {
-  // loadContent('content/lessons.html', 'content','.content');
-  loadContent('content/lessons.html', 'lesson2','.lessons');
-  
-})
-document.querySelector('.ram').addEventListener('click', () => {
-  // loadContent('content/lessons.html', 'content','.content');
-  loadContent('content/lessons.html', 'lesson3','.lessons');
-  
-})
-
-document.querySelector('.storage').addEventListener('click', () => {
-  // loadContent('content/lessons.html', 'content','.content');
-  loadContent('content/lessons.html', 'lesson4','.lessons');
-  
-})
-
-
-document.querySelector('.io').addEventListener('click', () => {
-  // loadContent('content/lessons.html', 'content','.content');
-  loadContent('content/lessons.html', 'lesson5','.lessons');
-  
-})
-
-document.querySelector('.hardware-and-software').addEventListener('click', () => {
-  // loadContent('content/lessons.html', 'content','.content');
-  loadContent('content/lessons.html', 'lesson6','.lessons');
-  
-})
-document.querySelector('.os').addEventListener('click', () => {
-  // loadContent('content/lessons.html', 'content','.content');
   loadContent('content/lessons.html', 'lesson7','.lessons');
   
 })
-document.querySelector('.as').addEventListener('click', () => {
-  // loadContent('content/lessons.html', 'content','.content');
-  loadContent('content/lessons.html', 'lesson8','.lessons');
-  
-})
-document.querySelector('.programming').addEventListener('click', () => {
-  // loadContent('content/lessons.html', 'content','.content');
-  loadContent('content/lessons.html', 'lesson9','.lessons');
-  
-})
 
+function attachClickListener(className, lessonNumber) {
+  document.querySelector(className).addEventListener('click', () => {
+    loadContent('content/lessons.html', 'lesson' + lessonNumber, '.lessons');
+  });
+}
+
+attachClickListener('.cpu', 2);
+attachClickListener('.ram', 3);
+attachClickListener('.storage', 4);
+attachClickListener('.io', 5);
+attachClickListener('.hardware-and-software', 6);
+attachClickListener('.os', 7);
+attachClickListener('.as', 8);
+attachClickListener('.programming', 9);

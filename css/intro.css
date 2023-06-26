@@ -40,6 +40,14 @@ h3 {
     font-weight: 500;
 }
 
+h4 {
+    padding-left: 20px;
+    padding-top: 10px;
+    margin: 0;
+    color: rgb(187, 159, 4);
+    font-weight: 500;
+}
+
 p {
     padding-left: 20px;
     padding-top: 10px;
@@ -189,8 +197,19 @@ span {
 
 }
 
-#lesson {
-    padding-bottom: 10px;
+#lesson1,
+#lesson2,
+#lesson3,
+#lesson4,
+#lesson5,
+#lesson6,
+#lesson7,
+#lesson8 {
+    max-height: 800px;
+}
+
+.simplebar-scrollbar::before{
+    background: rgb(192, 192, 192);
 }
 
 li {
