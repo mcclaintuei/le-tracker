@@ -116,13 +116,14 @@ select{
     border-radius: 10px;
     font-size: 18px;
     margin-right: 10px;
+        box-shadow: 2px 2px 4px #333e5c;
+
     transition: 0.3s ease;
 }
 
 
 .button:hover {
     background: #333e5c;
-    box-shadow: 2px 2px 4px #333e5c;
 }
 
 .js-increment,
