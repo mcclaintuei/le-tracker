@@ -2,9 +2,9 @@
 
 
 :root {
-    --primary-color: #034d40;
-    --secondary-color: #189d9d;
-    --accent-color: #c4eeee;
+    --primary-color: #222222;
+    --secondary-color: #666;
+    --accent-color: #e6e6e6;
     --text-color-dark: #000000;
     --text-color-light: #ffffff;
 
@@ -103,7 +103,10 @@ body p {
 .container-btns {
     margin-bottom: 10px;
 }
-
+select{
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+}
 .button {
     width: 100px;
     padding: 10px 15px;
