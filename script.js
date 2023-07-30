@@ -342,12 +342,27 @@ function updateTimer() {
   const remainingSeconds = seconds % 60;
 
   const formattedTime = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(remainingSeconds)}`;
-  document.querySelector('.timer').textContent = formattedTime;
+  const timerElement = document.querySelector('.timer');
+  timerElement.textContent = formattedTime;
 
+  // Set the color based on the number of seconds
+  timerElement.style.color = getColorForSeconds(seconds);
 }
 
 function formatTime(time) {
   return time < 10 ? `0${time}` : time;
+}
+
+function getColorForSeconds(seconds) {
+  if (seconds < 60) {
+    return 'blue'; // Change to the desired color for seconds < 60
+  } else if (seconds < 120) {
+    return 'green'; // Change to the desired color for seconds >= 60 and < 120
+  } else if (seconds < 180) {
+    return 'orange'; // Change to the desired color for seconds >= 120 and < 180
+  } else {
+    return 'red'; // Change to the desired color for seconds >= 180
+  }
 }
 
 document.getElementById('startButton').addEventListener('click', startTimer);
