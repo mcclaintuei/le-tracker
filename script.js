@@ -323,3 +323,31 @@ themeIconElement.addEventListener('click', () => {
     document.documentElement.style.setProperty('--accent-color', colorThemes[currentTheme].accent);
 })
 
+let timerInterval;
+let seconds = 0;
+let isRunning = false;
+
+function startTimer() {
+  clearInterval(timerInterval);
+  seconds = 0;
+  updateTimer();
+  timerInterval = setInterval(updateTimer, 1000);
+  isRunning = true;
+}
+
+function updateTimer() {
+  seconds++;
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
+
+  const formattedTime = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(remainingSeconds)}`;
+  document.querySelector('.timer').textContent = formattedTime;
+
+}
+
+function formatTime(time) {
+  return time < 10 ? `0${time}` : time;
+}
+
+document.getElementById('startButton').addEventListener('click', startTimer);

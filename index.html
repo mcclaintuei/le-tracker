@@ -21,9 +21,13 @@
     </section>
     <section id="body-section">
         <div class="container">
-            <p class="incident-Element"></p>
+            <div>
+                <div class="timer">00:00:00</div>
+
+                <p class="incident-Element"></p>
+            </div>
             <div class="container-btns">
-                <button class="button js-increment">+1</button>
+                <button id="startButton" class="button js-increment">+1</button>
                 <button class="button js-decrement">-1</button>
             </div>
             <button class="button js-reset">Reset</button>
@@ -33,10 +37,10 @@
             <div class="js-input-grid">
                 <!--<input type="text" class="js-day-input" placeholder="Day">-->
                 <select class="js-day-input">
-                    
-                    <option value="Monday" selected>Monday</option>
+
+                    <option value="Monday">Monday</option>
                     <option value="Tuesday">Tuesday</option>
-                    <option value="Wednesday">Wednesday</option>
+                    <option value="Wednesday" selected>Wednesday</option>
                     <option value="Thursday">Thursday</option>
                     <option value="Friday">Friday</option>
                     <option value="Saturday">Saturday</option>
