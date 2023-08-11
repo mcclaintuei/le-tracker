@@ -12,6 +12,7 @@ document.addEventListener('keydown', (event) => {
     if (event.key === '+') {
         incrementIncident();
         renderHTML();
+        startTimer()
     }
 });
 function incrementIncident() {
