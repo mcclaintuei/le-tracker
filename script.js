@@ -40,18 +40,29 @@ function decrementIncident() {
 }
 
 //Reset Hander
+const popup = document.getElementById('popup');
+const yesButton = document.getElementById('yesButton');
+const noButton = document.getElementById('noButton');
 document.querySelector('.js-reset').addEventListener('click', () => {
-    const userConfirmed = confirm('Are you sure?');
-    if (userConfirmed) {
-        console.log('Incidents Cleared');
-        localStorage.removeItem('incidents')
-        totalIncidents.incidents = 0
-        renderHTML()
-    } else {
-        console.log('Code execution cancelled.');
-    }
-   
+    popup.style.display = 'flex';
 })
+
+yesButton.addEventListener('click', () => {
+    console.log('Incidents Cleared');
+    localStorage.removeItem('incidents')
+    totalIncidents.incidents = 0
+    renderHTML()
+    closePopup();
+});
+
+noButton.addEventListener('click', () => {
+    console.log('Code execution cancelled.');
+    closePopup();
+});
+
+function closePopup() {
+    popup.style.display = 'none';
+}
 
 
 //HTML Renderer
