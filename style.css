@@ -154,6 +154,8 @@ select{
 
 .popup button {
     margin: 5px;
+    background-color: rgb(70, 69, 69);
+    color: white;
 }
 
 @keyframes fadeIn {
