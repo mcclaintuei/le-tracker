@@ -2,50 +2,14 @@
 
 
 :root {
-    --primary-color: #222222;
-    --secondary-color: #666;
-    --accent-color: #e6e6e6;
+    --primary-color: #22273b;
+    --secondary-color: #31374e;
+    --accent-color: #454c67;
     --text-color-dark: #eeeeee;
     --text-color-light: #ffffff;
 
 }
 
-:root {
-    /* Theme 1: Blue */
-    --theme1-dark: #1c394e;
-    --theme1-medium: #4fa1ca;
-    --theme1-light: #b7e0f1;
-
-    /* Theme 2: Red */
-    --theme2-dark: #2c0f0f;
-    --theme2-medium: #862323;
-    --theme2-light: #d1d1d1;
-
-    /* Theme 3: Green */
-    --theme3-dark: #0f250c;
-    --theme3-medium: #5c8e51;
-    --theme3-light: #d6f8d8;
-
-    /* Theme 4: Purple */
-    --theme4-dark: #270f2b;
-    --theme4-medium: #8c4d8f;
-    --theme4-light: #f1d8f8;
-
-    /* Theme 5: Orange */
-    --theme5-dark: #492e07;
-    --theme5-medium: #d08c2a;
-    --theme5-light: #fff5d7;
-
-    /* Theme 6: Teal */
-    --theme6-dark: #013129;
-    --theme6-medium: #189d9d;
-    --theme6-light: #c4eeee;
-
-    /* Theme 7: Gray */
-    --theme7-dark: #222222;
-    --theme7-medium: #666;
-    --theme7-light: #e6e6e6;
-}
 
 
 
@@ -59,8 +23,8 @@ body {
     font-weight: 300;
 }
 
-body p {
-    color: var(--text-color);
+body {
+    color: var(--text-color-light);
 }
 
 .header {
@@ -68,7 +32,7 @@ body p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background: var(--secondary-color);
     color: var(--text-color-light);
     box-shadow: 0 0 5px 0 rgb(35, 40, 44);
 
@@ -78,12 +42,14 @@ body p {
     padding: 25px;
     font-size: 30px;
     transition: .3s ease;
+    color: rgb(137, 137, 137);
+
 }
 
 .header i:hover{
-    color: gold;
-    transform: scale(1.2);
+    color: rgb(255, 255, 255);
 }
+
 .timer {
   font-size: 26px;
   margin-bottom: 20px;
@@ -108,20 +74,19 @@ body p {
     margin-bottom: 10px;
 }
 select{
-    background-color: var(--primary-color);
-    color: var(--accent-color);
+    background-color: var(--secondary-color);
+    color: white;
 }
 .button {
     width: 100px;
     padding: 10px 15px;
-    background:  var(--primary-color);
+    background:  var(--secondary-color);
     color: var(--text-color-light);
     border: none;
     border-radius: 10px;
     font-size: 18px;
     margin-right: 10px;
-        box-shadow: 2px 2px 4px #333e5c;
-
+    box-shadow: 2px 1px 8px var(--primary-color);
     transition: 0.3s ease;
 }
 
@@ -194,7 +159,7 @@ select{
     padding: 10px 15px;
     font-size: 15px;
     margin: 0;
-    color: #12304b;
+    color: var(--text-color-light);
     border: 1px solid #b1dbe7;
     border-radius: 10px;
     background-color: rgb(255, 255, 255);

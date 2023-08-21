@@ -287,40 +287,45 @@ const today = new Date().getDay();
 // Define an array of color themes, with one for each day of the week
 const colorThemes = [
     {
-        primary: '#1c394e',
-        secondary: '#4fa1ca',
-        accent: '#f2ffff'
+        primary: '#3b2222',
+        secondary: '#4e3131',
+        accent: '#674545'
     },
     {
-        primary: '#4d1616',
-        secondary: '#862323',
-        accent: '#d1d1d1'
-    },
+        "primary": "#22273b",
+        "secondary": "#31374e",
+        "accent": "#454c67"
+    },    
     {
-        primary: '#1c4417',
-        secondary: '#5c8e51',
-        accent: '#d6f8d8'
-    },
-    {
-        primary: '#401847',
-        secondary: '#8c4d8f',
-        accent: '#f1d8f8'
-    },
-    {
-        primary: '#4e3410',
-        secondary: '#d08c2a',
-        accent: '#fff5d7'
-    },
-    {
-        primary: '#034d40',
-        secondary: '#189d9d',
-        accent: '#c4eeee'
-    },
-    {
-        primary: '#222222',
-        secondary: '#666',
-        accent: '#e6e6e6'
+        "primary": "#1c3521",
+        "secondary": "#2a4830",
+        "accent": "#3c6344"
     }
+    ,
+    {
+        "primary": "#312f48",
+        "secondary": "#413e5d",
+        "accent": "#524f6f"
+    }
+    ,
+    {
+        "primary": "#381b1c",
+        "secondary": "#4c2324",
+        "accent": "#642d2e"
+    }
+    ,
+    {
+        "primary": "#203038",
+        "secondary": "#2c475e",
+        "accent": "#3d5f7f"
+    }
+    ,
+    {
+        "primary": "#36271d",
+        "secondary": "#49371f",
+        "accent": "#634d2e"
+    }
+    
 ];
 
 // Set the color theme based on the current day of the week
@@ -374,9 +379,9 @@ function formatTime(time) {
 
 function getColorForSeconds(seconds) {
     if (seconds < 60) {
-        return 'blue'; // Change to the desired color for seconds < 60
+        return '#d4d4df'; // Change to the desired color for seconds < 60
     } else if (seconds < 120) {
-        return 'green'; // Change to the desired color for seconds >= 60 and < 120
+        return '#64cb64'; // Change to the desired color for seconds >= 60 and < 120
     } else if (seconds < 180) {
         return 'orange'; // Change to the desired color for seconds >= 120 and < 180
     } else {
