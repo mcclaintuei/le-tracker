@@ -10,9 +10,34 @@
 
 }
 
+/* scrollbar on the root <html> or <body> element */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 6px; 
+}
+
+/* Track */
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: var(--secondary-color); 
+}
+
+/* Handle */
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: var(--accent-color); 
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
 
 body {
-    overflow: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     font-size: 18px;
     margin: 0;
