@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!--Box icon-->
-    <title>Incident Count Tracker</title>
+    <title>Le Traqueur</title>
     <!--Custom css-->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,8 +15,7 @@
 <body>
     <section>
         <div class="header">
-            <h2>Incident Count Tracker</h2>
-            <i class='bx bxs-brush theme-switch'></i>
+            <h2>Le Traqueur</h2>
         </div>
     </section>
     <section id="body-section">
@@ -32,12 +31,12 @@
             </div>
             <button class="button js-reset">Reset</button>
             <div class="popup" id="popup">
-        <div class="popup-content">
-            <p>Are you sure?</p>
-            <button id="yesButton">Yes</button>
-            <button id="noButton">No</button>
-        </div>
-    </div>
+                <div class="popup-content">
+                    <p>Are you sure?</p>
+                    <button id="yesButton">Yes</button>
+                    <button id="noButton">No</button>
+                </div>
+            </div>
             <div class="weekly-avg">Weekly Average:</div>
         </div>
         <div class="records-container">
@@ -45,13 +44,13 @@
                 <!--<input type="text" class="js-day-input" placeholder="Day">-->
                 <select class="js-day-input">
 
-                    <option value="Monday">Monday</option>
-                    <option value="Tuesday">Tuesday</option>
-                    <option value="Wednesday" selected>Wednesday</option>
-                    <option value="Thursday">Thursday</option>
-                    <option value="Friday">Friday</option>
-                    <option value="Saturday">Saturday</option>
-                    <option value="Sunday">Sunday</option>
+                    <option value="monday">Monday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="wednesday" selected>Wednesday</option>
+                    <option value="thursday">Thursday</option>
+                    <option value="friday">Friday</option>
+                    <option value="saturday">Saturday</option>
+                    <option value="sunday">Sunday</option>
                 </select>
 
                 <input type="number" class="js-count-input" placeholder="Incidents">
@@ -60,6 +59,9 @@
             <div class="js-records-grid">
             </div>
         </div>
+        <!-- <div class="stats">
+
+        </div> -->
     </section>
 
     <script src="script.js"></script>

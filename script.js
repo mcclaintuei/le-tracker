@@ -282,70 +282,6 @@ function editRecord(index) {
 
 }
 
-//Daily Theme Selector
-const today = new Date().getDay();
-// Define an array of color themes, with one for each day of the week
-const colorThemes = [
-    {
-        primary: '#3b2222',
-        secondary: '#4e3131',
-        accent: '#674545'
-    },
-    {
-        "primary": "#22273b",
-        "secondary": "#31374e",
-        "accent": "#454c67"
-    },    
-    {
-        "primary": "#1c3521",
-        "secondary": "#2a4830",
-        "accent": "#3c6344"
-    }
-    ,
-    {
-        "primary": "#312f48",
-        "secondary": "#413e5d",
-        "accent": "#524f6f"
-    }
-    ,
-    {
-        "primary": "#381b1c",
-        "secondary": "#4c2324",
-        "accent": "#642d2e"
-    }
-    ,
-    {
-        "primary": "#203038",
-        "secondary": "#2c475e",
-        "accent": "#3d5f7f"
-    }
-    ,
-    {
-        "primary": "#36271d",
-        "secondary": "#49371f",
-        "accent": "#634d2e"
-    }
-    
-];
-
-// Set the color theme based on the current day of the week
-// document.documentElement.style.setProperty('--primary-color', colorThemes[today].primary);
-// document.documentElement.style.setProperty('--secondary-color', colorThemes[today].secondary);
-// document.documentElement.style.setProperty('--accent-color', colorThemes[today].accent);
-
-const themeIconElement = document.querySelector('.theme-switch');
-
-//Theme Switch Button 
-let currentTheme = today;
-themeIconElement.addEventListener('click', () => {
-    if (currentTheme === 6) {
-        currentTheme = -1;
-    }
-    currentTheme += 1;
-    document.documentElement.style.setProperty('--primary-color', colorThemes[currentTheme].primary);
-    document.documentElement.style.setProperty('--secondary-color', colorThemes[currentTheme].secondary);
-    document.documentElement.style.setProperty('--accent-color', colorThemes[currentTheme].accent);
-})
 
 let timerInterval;
 let seconds = 0;
@@ -390,3 +326,5 @@ function getColorForSeconds(seconds) {
 }
 
 document.getElementById('startButton').addEventListener('click', startTimer);
+
+

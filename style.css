@@ -11,9 +11,6 @@
 }
 
 
-
-
-
 body {
     overflow: hidden;
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
@@ -62,7 +59,7 @@ body {
 }
 
 .container,
-.records-container {
+.records-container,.stats {
     margin: 20px;
     background-color: var(--accent-color);
     border-radius: 10px;
@@ -111,7 +108,8 @@ select{
 }
 
 .popup-content {
-    background-color: white;
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -120,7 +118,7 @@ select{
 
 .popup button {
     margin: 5px;
-    background-color: rgb(70, 69, 69);
+    background-color: var(--accent-color);
     color: white;
 }
 
