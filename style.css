@@ -38,7 +38,7 @@ body::-webkit-scrollbar-thumb:hover {
 body {
     overflow-y: scroll;
     scroll-behavior: smooth;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background: var(--primary-color);
     font-size: 18px;
     margin: 0;
     font-family: 'Ubuntu', sans-serif;
@@ -227,6 +227,17 @@ button {
     outline: none;
     border: none;
 }
+
+/* Login Form Design */
+
+
+
+
+
+
+
+
+
 
 
 @media (max-width: 477px) {

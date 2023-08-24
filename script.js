@@ -89,8 +89,7 @@ countInputElement.addEventListener('keydown', (event) => {
 })
 
 const records = JSON.parse(localStorage.getItem('records')) || []
-const persistenceModule = JSON.parse(localStorage.getItem('persistenceModule')) ||[]
-console.log(records)
+const persistenceModule = JSON.parse(localStorage.getItem('persistenceModule')) || []
 const weeklyrecords = JSON.parse(localStorage.getItem('weeklyrecords')) || {
     monday: 0,
     tuesday: 0,
@@ -100,13 +99,12 @@ const weeklyrecords = JSON.parse(localStorage.getItem('weeklyrecords')) || {
     saturday: 0,
     sunday: 0
 }
-console.log(weeklyrecords)
 
 
 renderRecords()
 function addRecord() {
     const record = {
-        date:'',
+        date: '',
         day: '',
         incidentCount: 0,
     }
@@ -254,75 +252,67 @@ document.getElementById('startButton').addEventListener('click', startTimer);
 
 
 // Sample data for demonstration
-const rawData = [
-    { date: '2023-08-01', incidents: 5 },
-    { date: '2023-08-02', incidents: 8 },
-    { date: '2023-08-03', incidents: 8 },
-    { date: '2023-08-04', incidents: 8 },
 
-    // ... Add more data here
-  ];
-  
-  const tableBody = document.getElementById('table-body');
-  
-  // Function to render the table
-  function renderTable(data) {
+const tableBody = document.getElementById('table-body');
+
+// Function to render the table
+function renderTable(data) {
     tableBody.innerHTML = '';
     data.forEach(item => {
-      const row = document.createElement('tr');
-      const dateObj = new Date(item.date);
-      const dayOfWeek = dateObj.toLocaleDateString('en-US', { weekday: 'long' });
-  
-      row.innerHTML = `
+        const row = document.createElement('tr');
+        const dateObj = new Date(item.date);
+        const dayOfWeek = dateObj.toLocaleDateString('en-US', { weekday: 'long' });
+
+        row.innerHTML = `
         <td>${item.date} (${dayOfWeek})</td>
         <td>${item.incidentCount}</td>
       `;
-      tableBody.appendChild(row);
+        tableBody.appendChild(row);
     });
-  }
-  
-  // Initial rendering
-  renderTable(persistenceModule);
-  
-  // Function to calculate weekly averages
-  function calculateWeeklyAverages(data) {
+}
+
+// Initial rendering
+renderTable(persistenceModule);
+
+// Function to calculate weekly averages
+function calculateWeeklyAverages(data) {
     const weeklyAverages = [];
     let weekStartIndex = 0;
     let weekEndIndex = 0;
     let currentWeekTotal = 0;
-  
+
     while (weekEndIndex < data.length) {
-      currentWeekTotal += data[weekEndIndex].incidents;
-  
-      const weekStartDate = new Date(data[weekStartIndex].date);
-      const weekEndDate = new Date(data[weekEndIndex].date);
-  
-      if (weekEndDate.getDay() === 6) { // Assuming Saturday is the end of the week
-        const average = currentWeekTotal / 7;
-        weeklyAverages.push(average.toFixed(2));
-  
-        currentWeekTotal = 0;
-        weekStartIndex = weekEndIndex + 1;
-      }
-  
-      weekEndIndex++;
+        currentWeekTotal += data[weekEndIndex].incidentCount;
+
+        const weekStartDate = new Date(data[weekStartIndex].date);
+        const weekEndDate = new Date(data[weekEndIndex].date);
+
+        if (weekEndDate.getDay() === 6) { // Assuming Saturday is the end of the week
+            const average = currentWeekTotal / 7;
+            weeklyAverages.push(average.toFixed(2));
+
+            currentWeekTotal = 0;
+            weekStartIndex = weekEndIndex + 1;
+        }
+
+        weekEndIndex++;
     }
-  
+
     return weeklyAverages;
-  }
-  
-  // Function to update table with weekly averages
-  function updateTableWithAverages() {
-    const weeklyAverages = calculateWeeklyAverages(rawData);
+}
+
+// Function to update table with weekly averages
+console.log(persistenceModule)
+function updateTableWithAverages() {
+    const weeklyAverages = calculateWeeklyAverages(persistenceModule);
     const tableRows = tableBody.querySelectorAll('tr');
-  
+
     tableRows.forEach((row, index) => {
-      const cell = document.createElement('td');
-      cell.textContent = index < weeklyAverages.length ? weeklyAverages[index] : '';
-      row.appendChild(cell);
+        const cell = document.createElement('td');
+        cell.textContent = index < weeklyAverages.length ? weeklyAverages[index] : '';
+        row.appendChild(cell);
     });
-  }
-  
-  // Call function to update table with weekly averages
-  updateTableWithAverages();
-  
+}
+
+// Call function to update table with weekly averages
+updateTableWithAverages();
