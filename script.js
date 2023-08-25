@@ -100,10 +100,6 @@ const weeklyrecords = JSON.parse(localStorage.getItem('weeklyrecords')) || {
     sunday: 0
 }
 
-const saveButtonElement = document.querySelector('.js-save')
-saveButtonElement.addEventListener('click', ()=>{
-    
-})
 renderRecords()
 function addRecord() {
     const record = {
@@ -302,9 +298,7 @@ function calculateWeeklyAverages(data) {
 
     return weeklyAverages;
 }
-
 // Function to update table with weekly averages
-console.log(persistenceModule)
 function updateTableWithAverages() {
     const weeklyAverages = calculateWeeklyAverages(persistenceModule);
     const tableRows = tableBody.querySelectorAll('tr');
@@ -318,3 +312,82 @@ function updateTableWithAverages() {
 
 // Call function to update table with weekly averages
 updateTableWithAverages();
+
+
+//Render Stats Graph
+const graphButton = document.querySelector('.js-graph')
+graphButton.addEventListener('click', () => {
+
+    if (graphButton.innerHTML === 'Graph') {
+        graphButton.innerHTML = 'Stats'
+        document.querySelector('.js-stats').innerHTML = `
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>`
+
+        const ctx = document.getElementById('myChart');
+        const labels = persistenceModule.map(item => item.date);
+        const incidentCounts = persistenceModule.map(item => item.incidentCount);
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Incident Count',
+                    data: incidentCounts,
+                    borderWidth: .5,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    } else {
+        graphButton.innerHTML = 'Graph'
+        document.querySelector('.js-stats').innerHTML = `
+        <div class="table-container">
+                    <table id="incident-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Incidents</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Table content will be added here -->
+                        </tbody>
+                    </table>
+                </div>`
+
+        const tableBody = document.getElementById('table-body');
+
+        // Function to render the table
+        function renderTable(data) {
+            tableBody.innerHTML = '';
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                const dateObj = new Date(item.date);
+                const dayOfWeek = dateObj.toLocaleDateString('en-US', { weekday: 'long' });
+
+                row.innerHTML = `
+                        <td>${item.date} (${dayOfWeek})</td>
+                        <td>${item.incidentCount}</td>
+                      `;
+                tableBody.appendChild(row);
+            });
+        }
+        renderTable(persistenceModule)
+    }
+
+})
+
+document.querySelector('.js-clear-stats').addEventListener('click', () => {
+    localStorage.removeItem('persistenceModule');
+
+
+})

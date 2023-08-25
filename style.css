@@ -13,26 +13,26 @@
 /* scrollbar on the root <html> or <body> element */
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
-  width: 6px; 
+    width: 6px;
 }
 
 /* Track */
 html::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track {
-  background: var(--secondary-color); 
+    background: var(--secondary-color);
 }
 
 /* Handle */
 html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
-  background: var(--accent-color); 
-  border-radius: 6px;
+    background: var(--accent-color);
+    border-radius: 6px;
 }
 
 /* Handle on hover */
 html::-webkit-scrollbar-thumb:hover,
 body::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-color);
+    background: var(--accent-color);
 }
 
 body {
@@ -70,13 +70,13 @@ h4 {
 
 }
 
-.header i:hover{
+.header i:hover {
     color: rgb(255, 255, 255);
 }
 
 .timer {
-  font-size: 26px;
-  margin-bottom: 20px;
+    font-size: 26px;
+    margin-bottom: 20px;
 }
 
 
@@ -86,7 +86,8 @@ h4 {
 }
 
 .container,
-.records-container,.stats {
+.records-container,
+.stats {
     margin: 20px;
     background-color: var(--accent-color);
     border-radius: 10px;
@@ -98,18 +99,19 @@ h4 {
 .container-btns {
     margin-bottom: 10px;
 }
-select{
+
+select {
     background-color: var(--secondary-color);
     color: white;
 }
+
 .button {
     width: 100px;
     padding: 10px 15px;
-    background:  var(--secondary-color);
+    background: var(--secondary-color);
     color: var(--text-color-light);
     border: none;
     border-radius: 10px;
-    font-size: 18px;
     margin-right: 10px;
     box-shadow: 2px 1px 8px var(--primary-color);
     transition: 0.3s ease;
@@ -120,13 +122,13 @@ select{
     background: #333e5c;
 }
 
-.util{
+.util {
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
 }
 
-.util .button{
+.util .button {
     width: fit-content;
 }
 
@@ -164,6 +166,7 @@ select{
         opacity: 0;
         transform: scale(0);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -202,7 +205,7 @@ select{
     transition: .5s ease;
 }
 
-.js-records-grid p:hover{
+.js-records-grid p:hover {
     border: 1px solid #b1dbe7;
 
 }
@@ -212,7 +215,8 @@ select{
 }
 
 .js-day-input,
-.js-count-input,.js-date-input {
+.js-count-input,
+.js-date-input {
     padding: 10px;
     outline: none;
     border-radius: 10px;
@@ -248,14 +252,29 @@ table {
     background-color: var(--secondary-color);
 }
 
-#incident-table thead{
+#incident-table thead {
     background-color: var(--accent-color);
 }
 
 
+.stats-leading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
 
+.stats .button{
+    width: fit-content;
+    margin: 20px 10px;
+}
 
-
+#myChart {
+  height: auto;
+  width: fit-content;
+    background-color: var(--text-color-light);
+    border-radius: 5px;
+}
 
 
 
