@@ -37,7 +37,8 @@ h2 {
     flex-direction: column;
     background: var(--secondary-color);
     width: 50vh;
-    height: 40vh;
+    height: auto;
+    min-height: 20vh;
     border-radius: 10px;
     padding: 20px;
 

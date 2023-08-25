@@ -29,7 +29,11 @@
                 <button id="startButton" class="button js-increment">+1</button>
                 <button class="button js-decrement">-1</button>
             </div>
+           <div class="util">
             <button class="button js-reset">Reset</button>
+            <button class="button js-save">Save</button>
+           </div>
+
             <div class="popup" id="popup">
                 <div class="popup-content">
                     <p>Are you sure?</p>
@@ -42,17 +46,6 @@
         <div class="records-container">
             <div class="js-input-grid">
                 <input type="Date" class="js-date-input" placeholder="Day">
-                <!-- <select class="js-day-input">
-
-                    <option value="monday">Monday</option>
-                    <option value="tuesday">Tuesday</option>
-                    <option value="wednesday" selected>Wednesday</option>
-                    <option value="thursday">Thursday</option>
-                    <option value="friday">Friday</option>
-                    <option value="saturday">Saturday</option>
-                    <option value="sunday">Sunday</option>
-                </select> -->
-
                 <input type="number" class="js-count-input" placeholder="Incidents">
                 <button class="button js-add-record-btn">Add</button>
             </div>
@@ -60,6 +53,7 @@
             </div>
         </div>
         <div class="stats">
+            <h4>Statistics</h4>
             <div class="table-container">
                 <table id="incident-table">
                     <thead>

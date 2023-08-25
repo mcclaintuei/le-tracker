@@ -1,27 +1,14 @@
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-    apiKey: "AIzaSyDU95mBEwswXTrehr6-awwFxPNMOqnEscM",
-    authDomain: "peak-suprstate-384109.firebaseapp.com",
-    projectId: "peak-suprstate-384109",
-    storageBucket: "peak-suprstate-384109.appspot.com",
-    messagingSenderId: "764256186835",
-    appId: "1:764256186835:web:ecdecc4c9b5bd4bb1e7f26",
-    measurementId: "G-QG56KL9Y1R"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = firebase.auth()
-const database = firebase.database()
 
 //Register Function
+document.querySelector('.register').addEventListener('click', ()=>{
+    register()
+})
 function register() {
     //Get all input fields
-    full_name = document.getElementById('full_name').value
-    email = document.getElementById('email').value
-    password = document.getElementById('password').value
+    const full_name = document.getElementById('full_name').value
+    const email = document.getElementById('email').value
+    const password = document.getElementById('password').value
 
     if (validate_email(email) == false || validate_password(password) == false) {
         alert('Email & Password Are Required')
@@ -59,14 +46,11 @@ function register() {
 
 }
 
-function validate_email(email) {
-    expression = /^[^@]+@\w+(\.\w+)+\w$/
-    if (expression.test(email) == true) {
-        return true
-    } else {
-        return false
-    }
+function validate_email(input_email) {
+    const expression = /^[^@]+@\w+(\.\w+)+\w$/;
+    return expression.test(input_email);
 }
+
 
 function validate_password(password) {
     if (password < 6) {

@@ -43,10 +43,12 @@ body {
     margin: 0;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
+    color: var(--text-color-light);
+
 }
 
-body {
-    color: var(--text-color-light);
+h4 {
+    margin: 5px;
 }
 
 .header {
@@ -116,6 +118,16 @@ select{
 
 .button:hover {
     background: #333e5c;
+}
+
+.util{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.util .button{
+    width: fit-content;
 }
 
 .popup {
@@ -228,8 +240,17 @@ button {
     border: none;
 }
 
-/* Login Form Design */
+table {
+    display: table;
+    border-spacing: 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+}
 
+#incident-table thead{
+    background-color: var(--accent-color);
+}
 
 
 

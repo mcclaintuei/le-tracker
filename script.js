@@ -100,7 +100,10 @@ const weeklyrecords = JSON.parse(localStorage.getItem('weeklyrecords')) || {
     sunday: 0
 }
 
-
+const saveButtonElement = document.querySelector('.js-save')
+saveButtonElement.addEventListener('click', ()=>{
+    
+})
 renderRecords()
 function addRecord() {
     const record = {
@@ -142,7 +145,6 @@ function addRecord() {
     dateInputElement.value = '';
     countInputElement.value = '';
     renderRecords();
-    console.log(records);
 
     // Update weekly records with new or updated record's incident count
     const day = record.day.toLowerCase();
