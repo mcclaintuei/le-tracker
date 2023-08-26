@@ -386,8 +386,14 @@ graphButton.addEventListener('click', () => {
 
 })
 
-document.querySelector('.js-clear-stats').addEventListener('click', () => {
+const clearStatsbutton = document.querySelector('.js-clear-stats')
+clearStatsbutton.addEventListener('click', () => {
     localStorage.removeItem('persistenceModule');
+    clearStatsbutton.innerHTML = 'Cleared!'
 
+    setTimeout(()=>{
+        clearStatsbutton.innerHTML = 'Clear Stats'
+
+    }, 1000)
 
 })
