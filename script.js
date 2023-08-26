@@ -113,8 +113,8 @@ function addRecord() {
     record.incidentCount = parseInt(countInputElement.value);
     if (!record.day && !record.incidentCount) {
         alert('Cannot add empty record')
-    } else if (!record.day) {
-        alert('Day is required')
+    } else if (!record.date) {
+        alert('Date is required')
     } else if (!record.incidentCount) {
         alert('incident count is required')
     } else if (record.incidentCount < 0) {
@@ -391,7 +391,7 @@ clearStatsbutton.addEventListener('click', () => {
     localStorage.removeItem('persistenceModule');
     clearStatsbutton.innerHTML = 'Cleared!'
 
-    setTimeout(()=>{
+    setTimeout(() => {
         clearStatsbutton.innerHTML = 'Clear Stats'
 
     }, 1000)
