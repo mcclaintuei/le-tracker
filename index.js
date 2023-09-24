@@ -29,13 +29,19 @@ const currentPage = window.location.pathname;
 
 if (currentPage == '/register.html') {
     document.querySelector('.register').addEventListener('click', register)
+    document.getElementById('password').addEventListener('keydown', (e)=>{
+    if(e.key === "Enter"){
+        register()
+    }
+    
+})
     document.querySelector('.login-btn').addEventListener('click', () => {
         window.location.href = '/login.html'
     });
 
 }
 
-// ...
+
 
 function register() {
     // Get all input fields
