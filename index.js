@@ -1,13 +1,11 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-import { getFirestore, collection, getDocs, addDoc,setDoc,doc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+import { getFirestore, collection, getDocs, addDoc, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+import {
+    getAuth, createUserWithEmailAndPassword,
+    signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile
+} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
     apiKey: "AIzaSyDU95mBEwswXTrehr6-awwFxPNMOqnEscM",
     authDomain: "peak-suprstate-384109.firebaseapp.com",
@@ -26,15 +24,14 @@ const database = getFirestore();
 
 
 const currentPage = window.location.pathname;
-
 if (currentPage == '/register.html') {
     document.querySelector('.register').addEventListener('click', register)
-    document.getElementById('password').addEventListener('keydown', (e)=>{
-    if(e.key === "Enter"){
-        register()
-    }
-    
-})
+    document.getElementById('password').addEventListener('keydown', (e) => {
+        if (e.key === "Enter") {
+            register()
+        }
+
+    })
     document.querySelector('.login-btn').addEventListener('click', () => {
         window.location.href = '/login.html'
     });
@@ -62,7 +59,9 @@ function register() {
         .then((userCredential) => {
             const user = userCredential.user;
             const uid = user.uid;
-
+            updateProfile(user, {
+                displayName: full_name
+            })
             const userRef = doc(database, 'users', uid); // Create a Firestore document reference
 
             const user_data = {
